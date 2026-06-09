@@ -3,6 +3,19 @@
 {% block content_title %}Dashboard{% endblock %}
 
 {% block main %}
-    <h2>Bienvenue dans l'administration !</h2>
-    <p>Utilisez le menu de gauche pour gérer les catégories et les articles de votre blog.</p>
+    <h2>👋 Bienvenue dans l'administration de Tech Blog !</h2>
+    <p>Gérez ici vos articles, catégories et commentaires.</p>
+
+    <div style="display: flex; gap: 2rem; margin-top: 2rem;">
+        <a href="{{ ea_url().setController('App\\Controller\\Admin\\PostCrudController').setAction('index').generateUrl() }}"
+           style="background: #1d4ed8; color: white; padding: 2rem; border-radius: 8px; flex: 1; text-align: center; text-decoration: none;">
+            <h3>📝 Articles</h3>
+            <p>Créer, modifier et supprimer vos posts</p>
+        </a>
+        <a href="{{ ea_url().setController('App\\Controller\\Admin\\CategoryCrudController').setAction('index').generateUrl() }}"
+           style="background: #16a34a; color: white; padding: 2rem; border-radius: 8px; flex: 1; text-align: center; text-decoration: none;">
+            <h3>🗂️ Catégories</h3>
+            <p>Organiser vos articles par thème</p>
+        </a>
+    </div>
 {% endblock %}
