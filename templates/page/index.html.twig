@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Tech Blog{% endblock %}
+
+{% block body %}
+    <h1>Tech blog</h1>
+    <p>Latest articles about IT and development</p>
+
+    {% for post in posts %}
+        <article>
+            <h2>{{ post.title }}</h2>
+            <p>{{ post.content }}</p>
+            <a href="{{ path('app_post_show', { id: post.id }) }}">Lire la suite</a>
+        </article>
+    {% endfor %}
+{% endblock %}

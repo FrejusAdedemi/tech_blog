@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ post.title }}{% endblock %}
+
+{% block body %}
+    <article>
+        <h1>{{ post.title }}</h1>
+        <p>{{ post.content }}</p>
+
+        <h3>Catégories :</h3>
+        <ul>
+            {% for category in post.categories %}
+                <li>{{ category.name }}</li>
+            {% endfor %}
+        </ul>
+    </article>
+
+    <h3>Commentaires</h3>
+    {% for comment in post.comments %}
+        <div>
+            <strong>{{ comment.username }}</strong> : {{ comment.content }}
+        </div>
+    {% else %}
+        <p>Aucun commentaire pour ce post.</p>
+    {% endfor %}
+
+    <h3>Ajouter un commentaire</h3>
+    {{ form_start(commentForm) }}
+    {{ form_widget(commentForm) }}
+    <button class="btn">{{ button_label|default('Save') }}</button>
+    {{ form_end(commentForm) }}
+
+    <a href="{{ path('app_home') }}">← Retour</a>
+
+{% endblock %}
+
