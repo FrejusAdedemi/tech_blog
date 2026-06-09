@@ -32,5 +32,34 @@
 
     <a href="{{ path('app_home') }}">← Retour</a>
 
+{% block stylesheets %}
+<style>
+    h3 { color: #333; margin-top: 20px; }
+    form label { 
+        display: block; 
+        font-weight: bold; 
+        margin-bottom: 5px;
+        color: #333;
+    }
+    form textarea, form input[type="text"] { 
+        width: 100%; 
+        padding: 8px; 
+        border: 1px solid #ccc; 
+        border-radius: 5px;
+        margin-bottom: 15px;
+        box-sizing: border-box;
+    }
+    form button { 
+        background: #333; 
+        color: white; 
+        padding: 10px 20px; 
+        border: none; 
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    form button:hover { background: #555; }
+</style>
+{% endblock %}
+
 {% endblock %}
 
